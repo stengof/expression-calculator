@@ -4,6 +4,8 @@ function eval() {
 }
 
 function expressionCalculator(expr) {
+  "use strict"
+
   const priority = {
     "+": 1,
     "-": 1,
@@ -18,19 +20,15 @@ function expressionCalculator(expr) {
     let num = "";
 
     for (let i = n;; i++) {
-      if (/\d/.test(str[i])) {
-        num += str[i];
-      } else {
-        break;
-      }
+      if ( /\d/.test(str[i]) ) num += str[i];
+      else break;
     }
 
     return num;
   }
 
   function isOperator(n) {
-    if (n === "+" || n === "-" || n === "*" || n === "/") return true;
-    return false;
+    return  (n === "+" || n === "-" || n === "*" || n === "/") ? true : false;
   }
 
   function makeOperation(value1, value2, operation) {
